@@ -1,76 +1,78 @@
-"use client"
-
-import { Mail, Phone, Linkedin, Github } from "lucide-react"
-import { motion } from "framer-motion"
+import React from "react";
+import { ArrowUp, Mail, Phone } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./Icons";
 
 export default function Footer() {
-  const iconVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2 },
-    }),
-  }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <footer className="bg-gray-900 text-white py-8 px-4">
-      <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
-        {/* Social Icons Centered */}
-        <div className="flex justify-center items-center gap-10">
-          <motion.a
-            custom={0}
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            href="mailto:awaishanif0007@gmail.com"
-            aria-label="Email"
-            className="hover:text-[#FF8B13] transition-colors"
-          >
-            <Mail className="w-6 h-6" />
-          </motion.a>
+    <footer className="py-12 px-4 sm:px-6 border-t border-zinc-900 bg-black text-zinc-400 text-xs">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Monogram / Info */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+          <span className="font-semibold text-white tracking-wide">
+            Awais Hanif
+          </span>
+          <span className="hidden sm:inline text-zinc-700">|</span>
+          <span className="font-mono text-zinc-500">
+            AI Engineer (ML, NLP, CV) & Data Scientist
+          </span>
+        </div>
 
-          <motion.a
-            custom={1}
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            href="tel:+923250793007"
-            aria-label="Phone"
-            className="hover:text-[#FF8B13] transition-colors"
-          >
-            <Phone className="w-6 h-6" />
-          </motion.a>
+        {/* Center/Right: Social & Back to Top */}
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 text-zinc-400">
+            <a
+              href="https://github.com/awais383"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+              aria-label="GitHub"
+            >
+              <GithubIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/awais-hanif-415381288"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+              aria-label="LinkedIn"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="mailto:awaishanif0007@gmail.com"
+              className="hover:text-white transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+            <a
+              href="tel:+923250793007"
+              className="hover:text-white transition-colors"
+              aria-label="Phone"
+            >
+              <Phone className="w-4 h-4" />
+            </a>
+          </div>
 
-          <motion.a
-            custom={2}
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            href="https://www.linkedin.com/in/awais-hanif-415381288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="hover:text-[#FF8B13] transition-colors"
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-800 transition-colors"
+            title="Back to Top"
           >
-            <Linkedin className="w-6 h-6" />
-          </motion.a>
-
-          <motion.a
-            custom={3}
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-            href="https://github.com/awais383"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="hover:text-[#FF8B13] transition-colors"
-          >
-            <Github className="w-6 h-6" />
-          </motion.a>
+            <ArrowUp className="w-4 h-4" />
+            <span className="font-mono text-[11px] hidden sm:inline">Top</span>
+          </button>
         </div>
       </div>
+
+      <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-zinc-950 text-center sm:text-left text-[11px] text-zinc-600 font-mono flex flex-col sm:flex-row justify-between items-center gap-2">
+        <p>© {new Date().getFullYear()} Awais Hanif. All rights reserved.</p>
+        <p>Built with React & Tailwind CSS • Optimized for performance</p>
+      </div>
     </footer>
-  )
+  );
 }
