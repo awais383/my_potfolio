@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FileText, Menu, X, ArrowUpRight, Terminal } from "lucide-react";
+import { FileText, Menu, X, ArrowUpRight } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,16 +33,32 @@ export default function Header() {
         {/* Brand / Monogram */}
         <a
           href="#hero"
-          className="flex items-center gap-2.5 group text-white font-medium tracking-tight"
+          className="flex items-center gap-3 group text-white font-medium tracking-tight"
         >
-          <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-700/70 flex items-center justify-center text-xs font-mono text-zinc-200 group-hover:border-zinc-400 group-hover:text-white transition-all">
-            <Terminal className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" />
+          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/15 via-zinc-950 to-indigo-500/10 border border-sky-400/25 flex items-center justify-center shadow-lg shadow-sky-950/30 group-hover:border-sky-400/60 group-hover:shadow-sky-900/40 transition-all duration-300">
+            <svg viewBox="0 0 40 40" className="w-7 h-7" aria-hidden="true">
+              <defs>
+                <linearGradient id="brand-mark-gradient" x1="7" y1="33" x2="33" y2="7" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#34d399" />
+                  <stop offset="0.55" stopColor="#38bdf8" />
+                  <stop offset="1" stopColor="#818cf8" />
+                </linearGradient>
+              </defs>
+              <path d="M8 31 20 8l12 23M13 24h14" fill="none" stroke="url(#brand-mark-gradient)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="m20 8 7 16 5 7" fill="none" stroke="#38bdf8" strokeOpacity=".3" strokeWidth="1" />
+              <circle cx="20" cy="8" r="2.6" fill="#818cf8" />
+              <circle cx="8" cy="31" r="2.6" fill="#34d399" />
+              <circle cx="32" cy="31" r="2.6" fill="#38bdf8" />
+              <circle cx="13" cy="24" r="1.8" fill="#e4e4e7" />
+              <circle cx="27" cy="24" r="1.8" fill="#e4e4e7" />
+            </svg>
+            <span className="absolute inset-1 rounded-lg bg-sky-400/5 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <div className="flex flex-col">
-            <span className="font-semibold text-sm tracking-wide text-zinc-100 group-hover:text-white transition-colors">
+            <span className="font-bold text-lg leading-tight tracking-[-0.02em] text-white group-hover:text-sky-100 transition-colors">
               Awais Hanif
             </span>
-            <span className="text-[10px] font-mono text-zinc-400 tracking-wider uppercase">
+            <span className="mt-0.5 text-[10px] font-mono text-zinc-400 tracking-[0.12em] uppercase">
               AI Engineer & Data Scientist
             </span>
           </div>
@@ -65,7 +81,7 @@ export default function Header() {
         {/* Actions (Resume & CTA) */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={`${import.meta.env.BASE_URL}AwaisHanifAIML.pdf`}
+            href={`${import.meta.env.BASE_URL}AwaisHanifAI.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium text-zinc-300 hover:text-white bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-600 transition-all"
@@ -86,7 +102,7 @@ export default function Header() {
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center gap-2">
           <a
-            href={`${import.meta.env.BASE_URL}AwaisHanifAIML.pdf`}
+            href={`${import.meta.env.BASE_URL}AwaisHanifAI.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs flex items-center"

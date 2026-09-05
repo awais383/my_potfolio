@@ -3,6 +3,14 @@ import python from "../assets/python.png";
 import pytorch from "../assets/pytorch.png";
 import mistral from "../assets/mistral.webp";
 import django from "../assets/django.png";
+import fastapi from "../assets/fastapi.svg";
+import sklearn from "../assets/sklearn.svg";
+import pandas from "../assets/pandas.jpg";
+import matplotlib from "../assets/matplotlib.jpg";
+import scrapy from "../assets/scrapy.jpg";
+import faiss from "../assets/faiss.jpg";
+import stripe from "../assets/stripe.jpg";
+import langchain from "../assets/langchain.jpg";
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState("all");
@@ -12,6 +20,7 @@ export default function Skills() {
     { id: "aiml", name: "AI & Machine Learning" },
     { id: "datascience", name: "Data Science (Scrape • Clean • Viz)" },
     { id: "backend", name: "FastAPI & Django" },
+    { id: "integrations", name: "Integrations & Databases" },
   ];
 
   const curatedSkills = [
@@ -26,7 +35,7 @@ export default function Skills() {
     {
       name: "FastAPI",
       category: "backend",
-      fallbackText: "API",
+      icon: fastapi,
       level: "Model Serving API",
       desc: "High-throughput asynchronous REST microservices with Pydantic validation for sub-50ms ML inference.",
     },
@@ -49,7 +58,7 @@ export default function Skills() {
     {
       name: "Scikit-Learn & XGBoost",
       category: "aiml",
-      fallbackText: "ML",
+      icon: sklearn,
       level: "Predictive Modeling",
       desc: "Gradient boosted decision trees, feature engineering, stratified cross-validation, and ROC-AUC optimization.",
     },
@@ -65,23 +74,46 @@ export default function Skills() {
     {
       name: "Scrapy & Playwright",
       category: "datascience",
-      fallbackText: "SCR",
+      icon: scrapy,
       level: "Data Scraping",
       desc: "Headless browser automation, distributed crawlers, infinite-scroll handling, and anti-bot mitigation.",
     },
     {
       name: "Pandas & NumPy",
       category: "datascience",
-      fallbackText: "PD",
+      icon: pandas,
       level: "Data Cleaning",
       desc: "Vectorized data sanitation, missing value imputation, outlier detection, and automated ETL validation.",
     },
     {
       name: "Matplotlib & Plotly",
       category: "datascience",
-      fallbackText: "VIZ",
+      icon: matplotlib,
       level: "Data Visualizing",
       desc: "Exploratory data analysis (EDA), statistical distributions, correlation heatmaps, and interactive visual charts.",
+    },
+
+    // Integrations & Databases
+    {
+      name: "FAISS Vector Database",
+      category: "integrations",
+      icon: faiss,
+      level: "Vector Search",
+      desc: "Billion-scale approximate nearest neighbor search, index sharding, GPU acceleration for RAG pipelines.",
+    },
+    {
+      name: "Stripe Payment Integration",
+      category: "integrations",
+      icon: stripe,
+      level: "Payment Processing",
+      desc: "Webhooks, subscriptions, checkout sessions, refunds, and PCI-compliant payment flows via Stripe API.",
+    },
+    {
+      name: "LangChain",
+      category: "integrations",
+      icon: langchain,
+      level: "LLM Orchestration",
+      desc: "Chains, agents, memory modules, tool calling, and retrieval pipelines for production LLM applications.",
     },
   ];
 
@@ -92,7 +124,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-24 px-4 sm:px-6 relative border-t border-zinc-900 bg-[#070709]">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-12">
           <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">
@@ -123,15 +155,15 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Curated Grid (3x3 on desktop) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Curated Grid (4 columns on desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredSkills.map((skill, index) => (
             <div
               key={index}
-              className="p-5 rounded-2xl bg-zinc-950/80 border border-zinc-850 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between hover:shadow-xl hover:shadow-black/50 group"
+              className="p-4 rounded-xl bg-zinc-950/80 border border-zinc-850 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between hover:shadow-xl hover:shadow-black/50 group"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 p-2.5 group-hover:border-zinc-700 transition-colors">
+              <div className="flex items-start gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 p-2 group-hover:border-zinc-700 transition-colors">
                   {skill.icon ? (
                     <img
                       src={skill.icon}
@@ -147,7 +179,7 @@ export default function Skills() {
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2 mb-1">
-                    <h3 className="text-sm font-semibold text-white truncate group-hover:text-zinc-100 transition-colors">
+                    <h3 className="text-xs sm:text-sm font-semibold leading-snug text-white group-hover:text-zinc-100 transition-colors">
                       {skill.name}
                     </h3>
                   </div>

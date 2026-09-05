@@ -16,6 +16,17 @@
     min-height: 100vh;
   }
 
+  .plexus-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 68% 18%, rgba(20, 47, 105, 0.16), transparent 35%),
+      radial-gradient(circle at 18% 72%, rgba(11, 28, 68, 0.12), transparent 38%),
+      #030305;
+  }
+
   /* Custom dark scrollbar */
   ::-webkit-scrollbar {
     width: 8px;

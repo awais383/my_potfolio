@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { ExternalLink, Code2, Sparkles, Layers, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Sparkles, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./Icons";
+import { projectsData } from "../data/projectsData";
 
-const projectsData = [
+/*
   {
     title: "High-Throughput Web Scraping & Data Extraction Engine",
     category: "datascience",
@@ -83,18 +84,17 @@ const projectsData = [
     demoLink: null,
     featured: false,
   },
-];
+*/
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
 
   const categories = [
     { id: "all", label: "All Projects" },
-    { id: "datascience", label: "Data Science (Scraping • Cleaning • Viz)" },
+    { id: "genai", label: "GenAI & Agents" },
+    { id: "datascience", label: "Data Science" },
     { id: "cv", label: "Computer Vision" },
-    { id: "nlp", label: "NLP & GenAI" },
-    { id: "ml", label: "Machine Learning" },
-    { id: "backend", label: "Python Web" },
+    { id: "backend", label: "AI Platforms" },
   ];
 
   const filteredProjects =
@@ -114,7 +114,7 @@ export default function Projects() {
             Featured Engineering Projects
           </h2>
           <p className="max-w-2xl text-sm sm:text-base text-zinc-400">
-            A selection of production-grade implementations spanning intelligent computer vision, high-speed LLM orchestration, automated scraping engines, and predictive modeling.
+            Production-grade AI systems spanning conversational agents, computer vision, RAG, compliance automation, and large-scale data engineering.
           </p>
         </div>
 
@@ -229,10 +229,10 @@ export default function Projects() {
         <div className="mt-12 p-6 rounded-2xl bg-zinc-950/60 border border-zinc-850 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
             <h4 className="text-sm font-semibold text-white mb-1">
-              Have specific data scraping targets or AI models in mind?
+              Have an AI product or data challenge in mind?
             </h4>
             <p className="text-xs text-zinc-400">
-              I build custom extraction pipelines and bespoke ML architectures tailored to unique data sources.
+              I build production-ready AI systems, agentic workflows, and scalable data pipelines tailored to real-world requirements.
             </p>
           </div>
           <a
